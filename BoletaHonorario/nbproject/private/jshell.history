@@ -1,0 +1,4 @@
+EXPRESSION#>ls
+EXPRESSION#>dir
+EXPRESSION#>java --version
+EXPRESSION#>exit
