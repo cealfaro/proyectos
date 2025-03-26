@@ -15,11 +15,16 @@ import modelo.FormatoNumerico;
  */
 public class VistaInicio extends javax.swing.JFrame {
 
+    
     public VistaInicio() {
         initComponents();
-        txtRetencion.setText("14.5");
+        //txtRetencion.setText("10");
+        anioConValor();
+    
     }
-
+    
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -34,6 +39,7 @@ public class VistaInicio extends javax.swing.JFrame {
         btnCalcular = new javax.swing.JButton();
         labelRetencion = new javax.swing.JLabel();
         txtRetencion = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CALCULADORA BOLETA HONORARIO v0.1");
@@ -43,6 +49,13 @@ public class VistaInicio extends javax.swing.JFrame {
         labelAnio.setText("Año");
 
         comboBoxAnio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2019", "2020", "2021", "2022", "2023", "2024", "2025" }));
+        comboBoxAnio.setSelectedIndex(6);
+        comboBoxAnio.setToolTipText("");
+        comboBoxAnio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxAnioActionPerformed(evt);
+            }
+        });
 
         labelIngresoHonorario.setText("Ingreso Honorario");
 
@@ -84,6 +97,8 @@ public class VistaInicio extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("%");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -102,7 +117,9 @@ public class VistaInicio extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(labelRetencion)
                         .addGap(18, 18, 18)
-                        .addComponent(txtRetencion, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtRetencion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtHonorarioRetencion, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
@@ -119,7 +136,8 @@ public class VistaInicio extends javax.swing.JFrame {
                     .addComponent(labelAnio)
                     .addComponent(comboBoxAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelRetencion)
-                    .addComponent(txtRetencion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRetencion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelIngresoHonorario)
@@ -205,9 +223,34 @@ public class VistaInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIngresoHonorarioKeyPressed
 
+    private void comboBoxAnioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxAnioActionPerformed
+        
+        anioConValor();
+        
+        
+    }//GEN-LAST:event_comboBoxAnioActionPerformed
+    
+    public void anioConValor(){
+    int seleccionAnio = comboBoxAnio.getSelectedIndex();
+        switch (seleccionAnio) {
+            case 0 -> txtRetencion.setText("10");
+            case 1 -> txtRetencion.setText("10.75");
+            case 2 -> txtRetencion.setText("11.5");
+            case 3 -> txtRetencion.setText("12.25");
+            case 4 -> txtRetencion.setText("13");
+            case 5 -> txtRetencion.setText("13.75");
+            case 6 -> txtRetencion.setText("14.5");
+            default -> {
+            }
+        }
+    
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
     private javax.swing.JComboBox<String> comboBoxAnio;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelAnio;
     private javax.swing.JLabel labelHonorarioRetencion;
